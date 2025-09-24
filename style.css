@@ -36,6 +36,16 @@ body {
     padding-bottom: .25rem;
     margin-bottom: 1rem;
   }
+
+  .badges { display: inline-block; margin-left: .5rem; }
+  .badge {
+    display: inline-block;
+    border: 1px solid var(--muted-border-color, #e6e6e6);
+    border-radius: 999px;
+    padding: .15rem .6rem;
+    margin-right: .25rem;
+    font-size: .85em;
+  }
   
   footer {
     text-align: center;
