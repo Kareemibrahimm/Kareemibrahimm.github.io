@@ -3,15 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Name - Personal Webpage</title>
+  <title>Kareem Abdelmoniem Ibrahim - Personal Webpage</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="assets/profile.png">
 </head>
 <body>
   <header>
-    <img src="assets/profile.jpg" alt="Your Photo" class="profile-img">
-    <h1>Your Name</h1>
-    <p>Your Current Position, Institution</p>
+    <img src="assets/profile.png" alt="Kareem Abdelmoniem Ibrahim" class="profile-img">
+    <h1>Kareem Abdelmoniem Ibrahim</h1>
+    <p>Ph.D. Candidate, Computer Engineering, University of Toronto</p>
+    <p>
+      <a href="https://www.linkedin.com/in/kareemabdelmoniem/" target="_blank" rel="noopener">LinkedIn</a>
+      ·
+      <a href="mailto:kareem.ibrahim@mail.utoronto.ca">kareem.ibrahim@mail.utoronto.ca</a>
+    </p>
     <nav>
+      <a href="#about">About</a>
       <a href="#publications">Publications</a>
       <a href="#awards">Awards</a>
       <a href="#teaching">Teaching</a>
@@ -20,49 +27,98 @@
   </header>
 
   <main>
+    <section id="about">
+      <h2>About</h2>
+      <p>
+        I am a Ph.D. candidate in Computer Engineering at the University of Toronto, advised by Prof. Andreas Moshovos.
+        My research focuses on building resource-efficient AI systems, including AI data compression and bit-level optimization,
+        efficient neural network training, efficient processing for 3D animatable avatars, and systems for neuromorphic computing.
+      </p>
+      <p>
+        Previously, I received an M.Sc. (GPA 3.9) and B.Sc. (GPA 4.0, rank 2/260) in Electronics and Communications from Cairo University.
+      </p>
+    </section>
     <section id="publications">
       <h2>Publications</h2>
       
-      <h3>Journal Papers</h3>
+      <h3>2025</h3>
       <ul>
-        <li><strong>Author Name.</strong> "Paper Title," <em>Journal Name</em>, Vol(Issue): pages, Year. [<a href="assets/papers/paper1.pdf">PDF</a>]</li>
-        <!-- Add more journal papers -->
+        <li>
+          <strong>K. Ibrahim</strong>, M. Nikolić, N. Giamblanco, A. Hadizadeh, E. Torres Sanchez, A. Moshovos.
+          "Evaluating Training Acceleration through Selective Workload Skipping: Methods and Benchmarks." <em>IHIET-AI</em>, 2025.
+        </li>
       </ul>
 
-      <h3>Conference Papers</h3>
+      <h3>2024</h3>
       <ul>
-        <li><strong>Author Name.</strong> "Paper Title," <em>Conference Name</em>, Location, Year. [<a href="assets/papers/conference-paper.pdf">PDF</a>]</li>
-        <!-- Add more conference papers -->
+        <li>
+          M. Nikolić, E. Torres, <strong>K. Ibrahim</strong>, A. Lascorz, A. Hadizadeh, J. Wang, A. Abdelhadi, M. Mahmoud,
+          A. Abdelhadi, C. Giannoula, A. Moshovos. "Every Bit Matters: A Hardware/Software Approach for Enabling More Powerful Machine Learning Models."
+          <em>Asilomar</em>, 2024.
+        </li>
+        <li>
+          E. Sha, A. Liu, <strong>K. Ibrahim</strong>, M. Mahmoud, C. Giannoula, A. Abdelhadi, A. Moshovos. "Marple: Scalable Spike Sorting for Untethered Brain-Machine Interfacing."
+          <em>ASPLOS</em>, 2024.
+        </li>
+        <li>
+          A. Lascorz, M. Mahmoud, A. Hadizadeh, M. Nikolić, <strong>K. Ibrahim</strong>, C. Giannoula, A. Abdelhadi, A. Moshovos.
+          "Atalanta: A Bit is Worth a “Thousand” Tensor Values." <em>ASPLOS</em>, 2024.
+        </li>
+        <li>
+          M. Nikolić, E. Torres, J. Wang, A. Hadizadeh, <strong>K. Ibrahim</strong>, M. Mahmoud, A. Abdelhadi, A. Moshovos.
+          "Schrödinger’s FP: Training Neural Networks with Dynamic Floating-Point Containers." <em>MLSys</em>, 2024.
+        </li>
+      </ul>
+
+      <h3>2019–2017</h3>
+      <ul>
+        <li>
+          H. A. Ameen, <strong>K. Abdelmonem</strong>, M. A. Elgamal, M. A. Mousa, O. Hamada, Y. Zakaria, M. A. Abdalla.
+          "A 28 GHz four-channel phased-array transceiver in 65-nm CMOS technology for 5G applications."
+          <em>AEU - International Journal of Electronics and Communications</em>, 2019.
+        </li>
+        <li>
+          H. A. Ameen, <strong>K. Abdelmonem</strong>, M. Elgamal, M. Mousa, O. Hamada, Y. Zakaria, M. Abdalla.
+          "A 28 GHz Four-Channel Phased-Array transceiver in 65-nm CMOS technology for 5G applications."
+          <em>ICM</em>, 2017.
+        </li>
+        <li>
+          M. A. Bahnasawi, <strong>K. Ibrahim</strong>, A. Mohamed, M. K. Mohamed, A. Moustafa, K. Abdelmonem, Y. Ismail, H. Mostafa.
+          "ASIC-oriented comparative review of hardware security algorithms for internet of things applications."
+          <em>ICM</em>, 2016.
+        </li>
       </ul>
     </section>
 
     <section id="awards">
       <h2>Awards</h2>
       <ul>
-        <li>Award Name, Institution or Conference, Year.</li>
-        <!-- Add more awards -->
+        <li>Right Track CAD Graduate Scholarship, University of Toronto, 2025.</li>
+        <li>Third Place Winner, National Microelectronics Olympiads, Synopsys Inc., 2019.</li>
+        <li>Awarded Teaching Stream Tenured Position for Academic Distinction, Department of Electronics and Electrical Communications, Cairo University, 2018.</li>
       </ul>
     </section>
 
     <section id="teaching">
       <h2>Teaching</h2>
       <ul>
-        <li>Course Title, Institution, Term/Year.</li>
-        <!-- Add more teaching experiences -->
+        <li>Course Instructor, CSCB58 (Computer Organization), U of T Scarborough, May–Sept 2024.</li>
+        <li>Teaching Assistant, University of Toronto (Jan 2022 – Present): APS105 (Computer Fundamentals), CSC258 (Computer Organization), ECE342 (Embedded Systems), ECE243 (Computer Organization), ECE352 (Computer Systems), ECE241 (Digital Systems), ECE253 (Digital and Computer Systems), ECE244 (Programming Fundamentals).</li>
+        <li>Teaching Assistant, Cairo University (Dec 2018 – July 2021): ELC103A (Logic Design), ELC103B (Introduction to Object Oriented Programming), ELC301A (Digital Electronics), ELC201B (Electronics), ELC202B (Electric Circuits).</li>
+        <li>Teaching Assistant, Zewail University of Science and Technology (Feb 2019 – July 2021): NANENG204 (Logic Design), NANENG422 (Digital Electronics), NANENG320 (Analog Electronics).</li>
+        <li>Teaching Assistant, The American University in Cairo (Jan 2021 – May 2021): ECNG318 (Digital Electronics).</li>
+        <li>Technical Trainer, National Telecommunication Institute (NTI), Sep 2020 – Nov 2020.</li>
       </ul>
     </section>
 
     <section id="services">
       <h2>Professional Services</h2>
-      <ul>
-        <li>Role, Event/Organization, Year.</li>
-        <!-- Add more services -->
-      </ul>
+      <ul></ul>
     </section>
   </main>
 
   <footer>
-    <p>&copy; Your Name, 2025. All rights reserved.</p>
+    <p>&copy; Kareem Abdelmoniem Ibrahim, 2025. All rights reserved.</p>
   </footer>
 </body>
 </html>
