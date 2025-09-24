@@ -16,6 +16,11 @@ body {
   background: var(--bg);
 }
 
+/* Widen overall layout on large screens */
+@media (min-width: 992px) {
+  .container { max-width: 1200px; }
+}
+
 /* Hero */
 header.hero {
   text-align: center;
