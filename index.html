@@ -1,63 +1,157 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kareem Abdelmoniem Ibrahim - Personal Webpage</title>
+  <title>Kareem Ibrahim | University of Toronto</title>
+  <meta name="description" content="Ph.D. candidate in Computer Engineering at the University of Toronto. Research in resource-efficient AI systems, AI compression, efficient training, 3D Gaussian splatting, and neuromorphic computing.">
   <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@2/css/pico.min.css">
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="assets/profile.png">
+  <link rel="icon" href="assets/profile.jpg">
 </head>
 <body>
-  <header class="container">
-    <img src="assets/profile.png" alt="Kareem Abdelmoniem Ibrahim" class="profile-img">
-    <h1>Kareem Abdelmoniem Ibrahim</h1>
-    <p>Ph.D. Candidate, Computer Engineering, University of Toronto</p>
-    <p>
-      <a href="https://www.linkedin.com/in/kareemabdelmoniem/" target="_blank" rel="noopener" class="secondary">LinkedIn</a>
-      ·
-      <a href="https://scholar.google.com/citations?user=j6mkfKoAAAAJ&hl=en" target="_blank" rel="noopener" class="secondary">Google Scholar</a>
-      ·
-      <a href="mailto:kareem.ibrahim@mail.utoronto.ca" class="secondary">kareem.ibrahim@mail.utoronto.ca</a>
+  <!-- Hero -->
+  <header class="hero container" role="banner" aria-label="Header">
+    <img src="assets/profile.jpg" alt="Portrait of Kareem Ibrahim" class="profile-img hero-img" width="200" height="200">
+    <h1 class="hero-title">Kareem Ibrahim</h1>
+    <p class="hero-subtitle">Ph.D. Candidate, Computer Engineering, University of Toronto</p>
+    <p class="hero-lead">
+      Researching resource‑efficient AI systems: AI data compression, bit‑level optimization, efficient neural network training, 3D Gaussian splatting, and neuromorphic systems.
     </p>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#news">News</a>
-      <a href="#publications">Publications</a>
-      <a href="#awards">Awards</a>
-      <a href="#teaching">Teaching</a>
-      <a href="#workshops">Workshops & Organization</a>
-    </nav>
+    <p class="hero-links" aria-label="Primary quick links">
+      <a href="mailto:kareem.ibrahim@mail.utoronto.ca" class="btn primary">Email</a>
+      <a href="https://scholar.google.com/citations?user=j6mkfKoAAAAJ&hl=en" target="_blank" rel="noopener" class="btn outline">Google Scholar</a>
+      <a href="https://www.linkedin.com/in/kareemabdelmoniem/" target="_blank" rel="noopener" class="btn outline">LinkedIn</a>
+    </p>
   </header>
 
-  <main class="container">
-    <section id="news">
-      <h2>News</h2>
+  <!-- Sticky nav -->
+  <nav class="site-nav sticky" aria-label="Main navigation">
+    <div class="container">
       <ul>
-        <li>[2025] Paper accepted to IHIET-AI 2025 on training acceleration via selective workload skipping.</li>
-        <li>[2024] Multiple works at ASPLOS 2024, MLSys 2024, and Asilomar 2024.</li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#awards">Awards</a></li>
+        <li><a href="#teaching">Teaching</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container" id="main">
+    <!-- About -->
+    <section id="about" aria-labelledby="about-title">
+      <h2 id="about-title">About</h2>
+      <p>
+        Ph.D. candidate in Computer Engineering at the University of Toronto, advised by Prof. Andreas Moshovos. Research focuses on building resource‑efficient AI systems spanning AI data compression and bit‑level optimization, efficient neural network training, efficient processing for 3D animatable avatars, and systems for neuromorphic computing.
+      </p>
+      <p>
+        Previously completed an M.Sc. (GPA 3.9) and B.Sc. (GPA 4.0, rank 2/260) in Electronics and Communications at Cairo University.
+      </p>
+    </section>
+
+    <!-- Research (refined) -->
+    <section id="research" aria-labelledby="research-title">
+      <h2 id="research-title">Research</h2>
+      <div class="research-grid">
+        <article class="research-card">
+          <h3>AI Compression & Bit‑Level Optimization</h3>
+          <p>
+            Methods that reduce model and activation footprints while preserving accuracy, enabling larger effective capacity under tight memory and bandwidth limits.
+          </p>
+          <ul class="research-points">
+            <li>Dynamic precision and containerization strategies</li>
+            <li>Hardware/Software co‑design for memory efficiency</li>
+          </ul>
+          <p class="research-xref">Representative: Schrödinger’s FP; Atalanta; Every Bit Matters (see Publications).</p>
+        </article>
+
+        <article class="research-card">
+          <h3>Efficient Neural Network Training</h3>
+          <p>
+            Training acceleration via selective workload skipping and adaptive resource allocation to reduce time‑to‑quality without compromising final accuracy.
+          </p>
+          <ul class="research-points">
+            <li>Skip policies and curriculum‑style scheduling</li>
+            <li>Benchmarks and methodology for fair evaluation</li>
+          </ul>
+          <p class="research-xref">Representative: Selective Workload Skipping (IHIET‑AI 2025).</p>
+        </article>
+
+        <article class="research-card">
+          <h3>3D Graphics & Gaussian Splatting</h3>
+          <p>
+            Computationally optimal pipelines for real‑time Gaussian splatting on mobile/AR devices, with attention to compression, latency, and visual fidelity.
+          </p>
+          <ul class="research-points">
+            <li>Rate–distortion–latency trade‑offs</li>
+            <li>Scheduling and data layouts for fast rendering</li>
+          </ul>
+          <p class="research-xref">Community: COGS (Computationally Optimal Gaussian Splatting).</p>
+        </article>
+
+        <article class="research-card">
+          <h3>Neuromorphic & Brain–Machine Interfaces</h3>
+          <p>
+            Scalable on‑device spike sorting and system design for untethered BMIs, emphasizing accuracy, energy, and robustness in deployment.
+          </p>
+          <ul class="research-points">
+            <li>Throughput‑aware algorithmic pipelines</li>
+            <li>Energy‑efficient hardware/software interfaces</li>
+          </ul>
+          <p class="research-xref">Representative: Marple (ASPLOS 2024).</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- News (moved up) -->
+    <section id="news" aria-labelledby="news-title">
+      <h2 id="news-title">News</h2>
+      <ul class="news-list">
+        <li class="news-card">
+          <span class="news-date">Oct 2025</span>
+          Organizing Committee for the “Workshop & Competition on Computationally Optimal Gaussian Splatting (COGS)” co‑located with ICCV 2025, in collaboration with Meta. Tracks focus on efficiency, compression, and quality; duties include evaluation design and leaderboard operations.
+          <span class="badges">
+            <a class="badge" href="https://sites.google.com/view/cogs2025/home?authuser=0" target="_blank" rel="noopener">Workshop Website</a>
+          </span>
+        </li>
+        <li class="news-card">
+          <span class="news-date">2025</span>
+          Paper accepted to IHIET‑AI 2025 on training acceleration via selective workload skipping.
+        </li>
+        <li class="news-card">
+          <span class="news-date">2024</span>
+          “Atalanta: A Bit is Worth a ‘Thousand’ Tensor Values” presented at ASPLOS 2024.
+        </li>
+        <li class="news-card">
+          <span class="news-date">2024</span>
+          “Marple: Scalable Spike Sorting for Untethered Brain‑Machine Interfacing” presented at ASPLOS 2024.
+        </li>
+        <li class="news-card">
+          <span class="news-date">2024</span>
+          “Schrödinger’s FP: Training Neural Networks with Dynamic Floating‑Point Containers” presented at MLSys 2024.
+        </li>
+        <li class="news-card">
+          <span class="news-date">2024</span>
+          “Every Bit Matters: A Hardware/Software Approach for Enabling More Powerful Machine Learning Models” presented at Asilomar 2024.
+        </li>
       </ul>
     </section>
 
-    <section id="about">
-      <h2>About</h2>
-      <p>
-        I am a Ph.D. candidate in Computer Engineering at the University of Toronto, advised by Prof. Andreas Moshovos.
-        My research focuses on building resource-efficient AI systems, including AI data compression and bit-level optimization,
-        efficient neural network training, efficient processing for 3D animatable avatars, and systems for neuromorphic computing.
-      </p>
-      <p>
-        Previously, I received an M.Sc. (GPA 3.9) and B.Sc. (GPA 4.0, rank 2/260) in Electronics and Communications from Cairo University.
-      </p>
-    </section>
-    <section id="publications">
-      <h2>Publications</h2>
-      
+    <!-- Publications -->
+    <section id="publications" aria-labelledby="pubs-title">
+      <h2 id="pubs-title">Publications</h2>
+
       <h3>2025</h3>
-      <ul>
-        <li>
-          <strong>K. Ibrahim</strong>, M. Nikolić, N. Giamblanco, A. Hadizadeh, E. Torres Sanchez, A. Moshovos.
-          "Evaluating Training Acceleration through Selective Workload Skipping: Methods and Benchmarks." <em>IHIET-AI</em>, 2025.
+      <ul class="pub-list">
+        <li class="pub-card">
+          <div class="pub-meta">
+            <strong>K. Ibrahim</strong>, M. Nikolić, N. Giamblanco, A. Hadizadeh, E. Torres Sanchez, A. Moshovos.
+            “Evaluating Training Acceleration through Selective Workload Skipping: Methods and Benchmarks.” <em>IHIET‑AI</em>, 2025.
+          </div>
           <span class="badges">
             <a class="badge" href="https://scholar.google.com/scholar?q=Evaluating+Training+Acceleration+through+Selective+Workload+Skipping" target="_blank" rel="noopener">Scholar</a>
           </span>
@@ -65,32 +159,35 @@
       </ul>
 
       <h3>2024</h3>
-      <ul>
-        <li>
-          M. Nikolić, E. Torres, <strong>K. Ibrahim</strong>, A. Lascorz, A. Hadizadeh, J. Wang, A. Abdelhadi, M. Mahmoud,
-          A. Abdelhadi, C. Giannoula, A. Moshovos. "Every Bit Matters: A Hardware/Software Approach for Enabling More Powerful Machine Learning Models."
-          <em>Asilomar</em>, 2024.
+      <ul class="pub-list">
+        <li class="pub-card">
+          <div class="pub-meta">
+            M. Nikolić, E. Torres, <strong>K. Ibrahim</strong>, A. Lascorz, A. Hadizadeh, J. Wang, A. Abdelhadi, M. Mahmoud, A. Abdelhadi, C. Giannoula, A. Moshovos. “Every Bit Matters: A Hardware/Software Approach for Enabling More Powerful Machine Learning Models.” <em>Asilomar</em>, 2024.
+          </div>
           <span class="badges">
             <a class="badge" href="https://scholar.google.com/scholar?q=Every+Bit+Matters:+A+Hardware/Software+Approach+for+Enabling+More+Powerful+Machine+Learning+Models" target="_blank" rel="noopener">Scholar</a>
           </span>
         </li>
-        <li>
-          E. Sha, A. Liu, <strong>K. Ibrahim</strong>, M. Mahmoud, C. Giannoula, A. Abdelhadi, A. Moshovos. "Marple: Scalable Spike Sorting for Untethered Brain-Machine Interfacing."
-          <em>ASPLOS</em>, 2024.
+        <li class="pub-card">
+          <div class="pub-meta">
+            E. Sha, A. Liu, <strong>K. Ibrahim</strong>, M. Mahmoud, C. Giannoula, A. Abdelhadi, A. Moshovos. “Marple: Scalable Spike Sorting for Untethered Brain‑Machine Interfacing.” <em>ASPLOS</em>, 2024.
+          </div>
           <span class="badges">
             <a class="badge" href="https://scholar.google.com/scholar?q=Marple:+Scalable+Spike+Sorting+for+Untethered+Brain-Machine+Interfacing" target="_blank" rel="noopener">Scholar</a>
           </span>
         </li>
-        <li>
-          A. Lascorz, M. Mahmoud, A. Hadizadeh, M. Nikolić, <strong>K. Ibrahim</strong>, C. Giannoula, A. Abdelhadi, A. Moshovos.
-          "Atalanta: A Bit is Worth a “Thousand” Tensor Values." <em>ASPLOS</em>, 2024.
+        <li class="pub-card">
+          <div class="pub-meta">
+            A. Lascorz, M. Mahmoud, A. Hadizadeh, M. Nikolić, <strong>K. Ibrahim</strong>, C. Giannoula, A. Abdelhadi, A. Moshovos. “Atalanta: A Bit is Worth a ‘Thousand’ Tensor Values.” <em>ASPLOS</em>, 2024.
+          </div>
           <span class="badges">
             <a class="badge" href="https://scholar.google.com/scholar?q=Atalanta:+A+Bit+is+Worth+a+Thousand+Tensor+Values" target="_blank" rel="noopener">Scholar</a>
           </span>
         </li>
-        <li>
-          M. Nikolić, E. Torres, J. Wang, A. Hadizadeh, <strong>K. Ibrahim</strong>, M. Mahmoud, A. Abdelhadi, A. Moshovos.
-          "Schrödinger’s FP: Training Neural Networks with Dynamic Floating-Point Containers." <em>MLSys</em>, 2024.
+        <li class="pub-card">
+          <div class="pub-meta">
+            M. Nikolić, E. Torres, J. Wang, A. Hadizadeh, <strong>K. Ibrahim</strong>, M. Mahmoud, A. Abdelhadi, A. Moshovos. “Schrödinger’s FP: Training Neural Networks with Dynamic Floating‑Point Containers.” <em>MLSys</em>, 2024.
+          </div>
           <span class="badges">
             <a class="badge" href="https://arxiv.org/abs/2204.13666" target="_blank" rel="noopener">arXiv</a>
             <a class="badge" href="https://scholar.google.com/scholar?q=Schr%C3%B6dinger%E2%80%99s+FP:+Training+Neural+Networks+with+Dynamic+Floating-Point+Containers" target="_blank" rel="noopener">Scholar</a>
@@ -99,27 +196,27 @@
       </ul>
 
       <h3>2019–2017</h3>
-      <ul>
-        <li>
-          H. A. Ameen, <strong>K. Abdelmonem</strong>, M. A. Elgamal, M. A. Mousa, O. Hamada, Y. Zakaria, M. A. Abdalla.
-          "A 28 GHz four-channel phased-array transceiver in 65-nm CMOS technology for 5G applications."
-          <em>AEU - International Journal of Electronics and Communications</em>, 2019.
+      <ul class="pub-list">
+        <li class="pub-card">
+          <div class="pub-meta">
+            H. A. Ameen, <strong>K. Abdelmonem</strong>, M. A. Elgamal, M. A. Mousa, O. Hamada, Y. Zakaria, M. A. Abdalla. “A 28 GHz four‑channel phased‑array transceiver in 65‑nm CMOS technology for 5G applications.” <em>AEU – International Journal of Electronics and Communications</em>, 2019.
+          </div>
           <span class="badges">
             <a class="badge" href="https://scholar.google.com/scholar?q=A+28+GHz+four-channel+phased-array+transceiver+in+65-nm+CMOS+technology+for+5G+applications" target="_blank" rel="noopener">Scholar</a>
           </span>
         </li>
-        <li>
-          H. A. Ameen, <strong>K. Abdelmonem</strong>, M. Elgamal, M. Mousa, O. Hamada, Y. Zakaria, M. Abdalla.
-          "A 28 GHz Four-Channel Phased-Array transceiver in 65-nm CMOS technology for 5G applications."
-          <em>ICM</em>, 2017.
+        <li class="pub-card">
+          <div class="pub-meta">
+            H. A. Ameen, <strong>K. Abdelmonem</strong>, M. Elgamal, M. Mousa, O. Hamada, Y. Zakaria, M. Abdalla. “A 28 GHz Four‑Channel Phased‑Array transceiver in 65‑nm CMOS technology for 5G applications.” <em>ICM</em>, 2017.
+          </div>
           <span class="badges">
             <a class="badge" href="https://scholar.google.com/scholar?q=A+28+GHz+Four-Channel+Phased-Array+transceiver+in+65-nm+CMOS+technology+for+5G+applications" target="_blank" rel="noopener">Scholar</a>
           </span>
         </li>
-        <li>
-          M. A. Bahnasawi, <strong>K. Ibrahim</strong>, A. Mohamed, M. K. Mohamed, A. Moustafa, K. Abdelmonem, Y. Ismail, H. Mostafa.
-          "ASIC-oriented comparative review of hardware security algorithms for internet of things applications."
-          <em>ICM</em>, 2016.
+        <li class="pub-card">
+          <div class="pub-meta">
+            M. A. Bahnasawi, <strong>K. Ibrahim</strong>, A. Mohamed, M. K. Mohamed, A. Moustafa, K. Abdelmonem, Y. Ismail, H. Mostafa. “ASIC‑oriented comparative review of hardware security algorithms for internet of things applications.” <em>ICM</em>, 2016.
+          </div>
           <span class="badges">
             <a class="badge" href="https://scholar.google.com/scholar?q=ASIC-oriented+comparative+review+of+hardware+security+algorithms+for+internet+of+things+applications" target="_blank" rel="noopener">Scholar</a>
           </span>
@@ -127,8 +224,9 @@
       </ul>
     </section>
 
-    <section id="awards">
-      <h2>Awards</h2>
+    <!-- Awards -->
+    <section id="awards" aria-labelledby="awards-title">
+      <h2 id="awards-title">Awards</h2>
       <ul>
         <li>Right Track CAD Graduate Scholarship, University of Toronto, 2025.</li>
         <li>Third Place Winner, National Microelectronics Olympiads, Synopsys Inc., 2019.</li>
@@ -136,33 +234,28 @@
       </ul>
     </section>
 
-    <section id="teaching">
-      <h2>Teaching</h2>
+    <!-- Teaching -->
+    <section id="teaching" aria-labelledby="teaching-title">
+      <h2 id="teaching-title">Teaching</h2>
       <ul>
-        <li>Course Instructor, CSCB58 (Computer Organization), U of T Scarborough, May–Sept 2024.</li>
-        <li>Teaching Assistant, University of Toronto (Jan 2022 – Present): APS105 (Computer Fundamentals), CSC258 (Computer Organization), ECE342 (Embedded Systems), ECE243 (Computer Organization), ECE352 (Computer Systems), ECE241 (Digital Systems), ECE253 (Digital and Computer Systems), ECE244 (Programming Fundamentals).</li>
-        <li>Teaching Assistant, Cairo University (Dec 2018 – July 2021): ELC103A (Logic Design), ELC103B (Introduction to Object Oriented Programming), ELC301A (Digital Electronics), ELC201B (Electronics), ELC202B (Electric Circuits).</li>
-        <li>Teaching Assistant, Zewail University of Science and Technology (Feb 2019 – July 2021): NANENG204 (Logic Design), NANENG422 (Digital Electronics), NANENG320 (Analog Electronics).</li>
-        <li>Teaching Assistant, The American University in Cairo (Jan 2021 – May 2021): ECNG318 (Digital Electronics).</li>
+        <li>Course Instructor, CSCB58 (Computer Organization), U of T Scarborough, May 2024 – Sept 2025.</li>
+        <li>Teaching Assistant, University of Toronto (Jan 2022 – Present): APS105, CSC258, ECE342, ECE243, ECE352, ECE241, ECE253, ECE244.</li>
+        <li>Teaching Assistant, Cairo University (Dec 2018 – July 2021): ELC103A, ELC103B, ELC301A, ELC201B, ELC202B.</li>
+        <li>Teaching Assistant, Zewail University of Science and Technology (Feb 2019 – July 2021): NANENG204, NANENG422, NANENG320.</li>
+        <li>Teaching Assistant, The American University in Cairo (Jan 2021 – May 2021): ECNG318.</li>
         <li>Technical Trainer, National Telecommunication Institute (NTI), Sep 2020 – Nov 2020.</li>
       </ul>
     </section>
 
-    <section id="workshops">
-      <h2>Workshops & Organization</h2>
-      <ul>
-        <li>
-          Organizing Committee, Workshop & Competition on Computationally Optimal Gaussian Splatting (COGS), co-located with ICCV 2025; in collaboration with Meta.
-          <span class="badges">
-            <a class="badge" href="https://sites.google.com/view/cogs2025/home?authuser=0" target="_blank" rel="noopener">Website</a>
-          </span>
-        </li>
-      </ul>
+    <!-- Contact -->
+    <section id="contact" aria-labelledby="contact-title">
+      <h2 id="contact-title">Contact</h2>
+      <p>Email is preferred: <a href="mailto:kareem.ibrahim@mail.utoronto.ca">kareem.ibrahim@mail.utoronto.ca</a></p>
     </section>
   </main>
 
-  <footer>
-    <p>&copy; Kareem Abdelmoniem Ibrahim, 2025. All rights reserved.</p>
+  <footer role="contentinfo">
+    <p>&copy; Kareem Ibrahim, 2025. All rights reserved.</p>
   </footer>
 </body>
 </html>
