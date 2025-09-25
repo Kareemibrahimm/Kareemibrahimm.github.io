@@ -1,72 +1,894 @@
-<!-- index.html -->
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kareem Ibrahim, Ph.D. Candidate | University of Toronto | AI Systems Researcher</title>
-  <meta name="description" content="Kareem Ibrahim: Ph.D. candidate in Computer Engineering at the University of Toronto. Research focuses on resource-efficient AI systems, AI compression, efficient training, 3D Gaussian splatting, and neuromorphic computing.">
-  <meta name="keywords" content="AI systems, resource-efficient AI, AI compression, 3D Gaussian splatting, neuromorphic computing, University of Toronto, Kareem Ibrahim, efficient neural networks, computer engineering, machine learning, research">
-    <meta name="google-site-verification" content="UKVJX_n4g94XPiL8WfvIUlI7m13mjL5zFFqMN6h9XY8">
-  <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@2/css/pico.min.css">
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="assets/profile.jpg">
-
-  <!-- Sitemap reference for search engines -->
-  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
-
-  <!-- Open Graph Meta Tags -->
-  <meta property="og:title" content="Kareem Ibrahim, Ph.D. Candidate | University of Toronto | AI Systems Researcher">
-  <meta property="og:description" content="Ph.D. candidate in Computer Engineering at the University of Toronto. Researching resource-efficient AI systems, AI compression, efficient training, 3D Gaussian splatting, and neuromorphic computing.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://kareemibrahimm.github.io/">
-  <meta property="og:image" content="https://kareemibrahimm.github.io/assets/profile.jpg">
-
-  <!-- Twitter Card Meta Tags -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Kareem Ibrahim, Ph.D. Candidate | University of Toronto | AI Systems Researcher">
-  <meta name="twitter:description" content="Ph.D. candidate in Computer Engineering at the University of Toronto. Researching resource-efficient AI systems, AI compression, efficient training, 3D Gaussian splatting, and neuromorphic computing.">
-  <meta name="twitter:image" content="https://kareemibrahimm.github.io/assets/profile.jpg">
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Kareem Ibrahim",
-      "url": "https://kareemibrahimm.github.io/",
-      "sameAs": [
-        "https://scholar.google.com/citations?user=j6mkfKoAAAAJ&hl=en",
-        "https://www.linkedin.com/in/kareemabdelmoniem/",
-        "https://github.com/kareemibrahimm",
-        "https://sites.google.com/view/cogs2025/home?authuser=0"
-      ],
-      "jobTitle": "Ph.D. Candidate in Computer Engineering",
-      "affiliation": {
-        "@type": "Organization",
-        "name": "University of Toronto"
-      },
-      "image": "https://kareemibrahimm.github.io/assets/profile.jpg",
-      "description": "Ph.D. candidate in Computer Engineering at the University of Toronto specializing in resource-efficient AI systems, AI compression, and 3D Gaussian splatting."
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kareem Ibrahim, Ph.D. Candidate | University of Toronto | AI Systems Researcher</title>
+  <meta name="description" content="Kareem Ibrahim: Ph.D. candidate in Computer Engineering at the University of Toronto. Research focuses on resource-efficient AI systems, AI compression, efficient training, 3D Gaussian splatting, and neuromorphic computing.">
+  <meta name="keywords" content="AI systems, resource-efficient AI, AI compression, 3D Gaussian splatting, neuromorphic computing, University of Toronto, Kareem Ibrahim">
+  <meta name="google-site-verification" content="UKVJX_n4g94XPiL8WfvIUlI7m13mjL5zFFqMN6h9XY8">
+  <link rel="icon" href="assets/profile.jpg">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    </script>
+
+    :root {
+      --primary: #2563eb;
+      --primary-light: #3b82f6;
+      --primary-dark: #1d4ed8;
+      --secondary: #64748b;
+      --accent: #0f172a;
+      --dark: #0f172a;
+      --dark-lighter: #1e293b;
+      --light: #f8fafc;
+      --text: #475569;
+      --text-light: #64748b;
+      
+      /* Light mode colors (default) */
+      --bg-primary: #ffffff;
+      --bg-secondary: #f8fafc;
+      --bg-card: rgba(255, 255, 255, 0.9);
+      --bg-card-hover: rgba(248, 250, 252, 0.95);
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --border-color: rgba(37, 99, 235, 0.15);
+    }
+
+    /* Dark mode colors */
+    body.dark-mode {
+      --bg-primary: #0f172a;
+      --bg-secondary: #1e293b;
+      --bg-card: rgba(30, 41, 59, 0.5);
+      --bg-card-hover: rgba(30, 41, 59, 0.7);
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --border-color: rgba(59, 130, 246, 0.2);
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+      position: relative;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    body.dark-mode {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    }
+
+    body:not(.dark-mode) {
+      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    }
+
+    /* Theme Toggle Button */
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 10001;
+      background: var(--bg-card);
+      backdrop-filter: blur(10px);
+      border: 2px solid var(--border-color);
+      border-radius: 50px;
+      padding: 12px 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .theme-toggle:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+      border-color: var(--primary);
+    }
+
+    .theme-toggle-icon {
+      font-size: 1.2rem;
+      transition: transform 0.3s ease;
+    }
+
+    .theme-toggle:hover .theme-toggle-icon {
+      transform: rotate(20deg);
+    }
+
+    /* Animated background particles */
+    .bg-animation {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: rgba(37, 99, 235, 0.15);
+      border-radius: 50%;
+      animation: float 20s infinite ease-in-out;
+    }
+
+    body.dark-mode .particle {
+      background: rgba(59, 130, 246, 0.2);
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      90% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) translateX(100px);
+        opacity: 0;
+      }
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 60vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px 20px;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(37, 99, 235, 0.06) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: pulse 4s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.5;
+      }
+      50% {
+        transform: translate(-50%, -50%) scale(1.1);
+        opacity: 0.8;
+      }
+    }
+
+    .profile-img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 3px solid var(--primary);
+      padding: 3px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      animation: borderRotate 3s linear infinite;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 15px 30px rgba(99, 102, 241, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .profile-img:hover {
+      transform: scale(1.05);
+    }
+
+    @keyframes borderRotate {
+      to {
+        background: linear-gradient(495deg, var(--primary), var(--secondary));
+      }
+    }
+
+    .hero-title {
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 800;
+      margin: 20px 0 8px;
+      background: linear-gradient(135deg, var(--text-primary), var(--primary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: fadeInUp 0.8s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    body.dark-mode .hero-title {
+      background: linear-gradient(135deg, var(--text-primary), var(--primary-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      color: var(--primary);
+      margin-bottom: 15px;
+      animation: fadeInUp 0.8s ease 0.1s backwards;
+    }
+
+    .hero-lead {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto 25px;
+      animation: fadeInUp 0.8s ease 0.2s backwards;
+      line-height: 1.7;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Buttons */
+    .hero-links {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+      animation: fadeInUp 0.8s ease 0.3s backwards;
+    }
+
+    .btn {
+      padding: 10px 24px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      display: inline-block;
+      position: relative;
+      overflow: hidden;
+      border: 2px solid transparent;
+      font-size: 0.9rem;
+    }
+
+    .btn.primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      box-shadow: 0 8px 25px rgba(37, 99, 235, 0.25);
+    }
+
+    .btn.primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(37, 99, 235, 0.35);
+    }
+
+    .btn.outline {
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      background: rgba(37, 99, 235, 0.05);
+    }
+
+    body.dark-mode .btn.outline {
+      color: var(--primary-light);
+      background: rgba(59, 130, 246, 0.1);
+    }
+
+    .btn.outline:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(37, 99, 235, 0.25);
+    }
+
+    /* Navigation */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      background: var(--bg-card);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-color);
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    body.dark-mode .site-nav {
+      background: rgba(30, 41, 59, 0.95);
+    }
+
+    body:not(.dark-mode) .site-nav {
+      background: rgba(255, 255, 255, 0.95);
+    }
+
+    .site-nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      padding: 20px 0;
+      margin: 0;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .site-nav a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      padding: 8px 20px;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      position: relative;
+      font-weight: 500;
+    }
+
+    .site-nav a:hover {
+      color: var(--text-primary);
+      background: rgba(37, 99, 235, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .site-nav a.active {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* Main Content */
+    main {
+      padding: 50px 0;
+    }
+
+    section {
+      margin-bottom: 100px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      position: relative;
+      display: inline-block;
+    }
+
+    body.dark-mode h2 {
+      background: linear-gradient(135deg, var(--primary-light), var(--primary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+      border-radius: 2px;
+    }
+
+    /* About Section */
+    #about p {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      line-height: 1.9;
+      margin-bottom: 20px;
+    }
+
+    #about a {
+      color: var(--primary);
+      text-decoration: none;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    body.dark-mode #about a {
+      color: var(--primary-light);
+    }
+
+    #about a:hover {
+      color: var(--primary-dark);
+    }
+
+    /* Research Grid */
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .research-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 30px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    body.dark-mode .research-card {
+      background: rgba(30, 41, 59, 0.5);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    body:not(.dark-mode) .research-card {
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .research-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .research-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary);
+      box-shadow: 0 20px 40px rgba(37, 99, 235, 0.12);
+    }
+
+    body.dark-mode .research-card:hover {
+      box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
+    }
+
+    .research-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .research-card h3 {
+      color: var(--text-primary);
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+    }
+
+    .research-card p {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 15px;
+    }
+
+    .research-points {
+      list-style: none;
+      margin: 15px 0;
+    }
+
+    .research-points li {
+      color: var(--text-secondary);
+      padding-left: 20px;
+      position: relative;
+      margin-bottom: 8px;
+    }
+
+    .research-points li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+    }
+
+    .research-xref {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      font-style: italic;
+    }
+
+    /* News Section */
+    .news-list {
+      list-style: none;
+      margin-top: 30px;
+    }
+
+    .news-card {
+      background: var(--bg-card);
+      border-left: 4px solid var(--primary);
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      display: block;
+      position: relative;
+      overflow: hidden;
+    }
+
+    body.dark-mode .news-card {
+      background: rgba(30, 41, 59, 0.5);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    body:not(.dark-mode) .news-card {
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .news-card:hover {
+      background: var(--bg-card-hover);
+      transform: translateX(10px);
+    }
+
+    body.dark-mode .news-card:hover {
+      background: rgba(30, 41, 59, 0.7);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    body:not(.dark-mode) .news-card:hover {
+      background: rgba(249, 250, 251, 0.95);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .news-date {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-right: 10px;
+    }
+
+    /* Publications */
+    .pub-list {
+      list-style: none;
+      margin: 20px 0 40px;
+    }
+
+    .pub-card {
+      background: var(--bg-card);
+      padding: 25px;
+      margin-bottom: 20px;
+      border-radius: 15px;
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+    }
+
+    body.dark-mode .pub-card {
+      background: rgba(30, 41, 59, 0.5);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    body:not(.dark-mode) .pub-card {
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .pub-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(37, 99, 235, 0.1);
+    }
+
+    body.dark-mode .pub-card:hover {
+      background: rgba(30, 41, 59, 0.7);
+      box-shadow: 0 10px 30px rgba(59, 130, 246, 0.12);
+    }
+
+    .pub-meta {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 10px;
+    }
+
+    .pub-meta strong {
+      color: var(--primary);
+    }
+
+    body.dark-mode .pub-meta strong {
+      color: var(--primary-light);
+    }
+
+    .pub-meta em {
+      color: var(--primary);
+      font-style: normal;
+      font-weight: 600;
+    }
+
+    /* Badges */
+    .badges {
+      display: inline-flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .badge {
+      background: rgba(37, 99, 235, 0.1);
+      color: var(--primary);
+      padding: 4px 12px;
+      border-radius: 15px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: all 0.3s ease;
+      border: 1px solid transparent;
+    }
+
+    body.dark-mode .badge {
+      background: rgba(59, 130, 246, 0.15);
+      color: var(--primary-light);
+    }
+
+    .badge:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(37, 99, 235, 0.2);
+    }
+
+    /* Awards & Teaching */
+    #awards ul, #teaching ul {
+      list-style: none;
+      margin-top: 20px;
+    }
+
+    #awards li, #teaching li {
+      background: linear-gradient(90deg, rgba(99, 102, 241, 0.1), transparent);
+      padding: 15px 20px;
+      margin-bottom: 15px;
+      border-radius: 10px;
+      color: var(--text-secondary);
+      position: relative;
+      padding-left: 40px;
+      transition: all 0.3s ease;
+    }
+
+    body.light-mode #awards li, body.light-mode #teaching li {
+      background: linear-gradient(90deg, rgba(99, 102, 241, 0.05), transparent);
+    }
+
+    #awards li::before, #teaching li::before {
+      content: '▸';
+      position: absolute;
+      left: 15px;
+      color: var(--primary);
+      font-size: 1.2rem;
+    }
+
+    #teaching li::before {
+      content: '▸';
+    }
+
+    #awards li:hover, #teaching li:hover {
+      background: linear-gradient(90deg, rgba(99, 102, 241, 0.2), rgba(99, 102, 241, 0.05));
+      transform: translateX(10px);
+    }
+
+    body.light-mode #awards li:hover, body.light-mode #teaching li:hover {
+      background: linear-gradient(90deg, rgba(99, 102, 241, 0.1), rgba(99, 102, 241, 0.02));
+    }
+
+    /* Contact Section */
+    #contact {
+      text-align: center;
+      padding: 60px 20px;
+      background: var(--bg-card);
+      border-radius: 30px;
+      margin-top: 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    body.dark-mode #contact {
+      background: rgba(30, 41, 59, 0.5);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    body:not(.dark-mode) #contact {
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+    }
+    #contact {
+      text-align: center;
+      padding: 60px 20px;
+      background: var(--bg-card);
+      border-radius: 30px;
+      margin-top: 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    body.dark-mode #contact {
+      background: rgba(30, 41, 59, 0.5);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    body:not(.dark-mode) #contact {
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    #contact::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(37, 99, 235, 0.03) 0%, transparent 70%);
+      animation: rotate 20s linear infinite;
+    }
+
+    @keyframes rotate {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    #contact p {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      position: relative;
+      z-index: 1;
+    }
+
+    #contact a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      position: relative;
+      display: inline-block;
+      transition: all 0.3s ease;
+    }
+
+    body.dark-mode #contact a {
+      color: var(--primary-light);
+    }
+
+    #contact a:hover {
+      color: var(--primary-dark);
+      transform: scale(1.05);
+    }
+
+    body.dark-mode #contact a:hover {
+      color: var(--text-primary);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--text-secondary);
+      border-top: 1px solid var(--border-color);
+      margin-top: 100px;
+    }
+
+    /* Progress Bar */
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2px;
+      background: var(--primary);
+      z-index: 10000;
+      transition: width 0.3s ease;
+    }
+
+    /* Heading colors for dark mode */
+    body.dark-mode h3 {
+      color: var(--text-primary);
+    }
+
+    body:not(.dark-mode) h3 {
+      color: var(--text-primary);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+      
+      .site-nav ul {
+        padding: 15px 10px;
+      }
+      
+      .research-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      h2 {
+        font-size: 2rem;
+      }
+
+      .theme-toggle {
+        top: 10px;
+        right: 10px;
+        padding: 10px 15px;
+      }
+
+      .theme-toggle span {
+        display: none;
+      }
+    }
+
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Selection color */
+    ::selection {
+      background: var(--primary);
+      color: white;
+    }
+  </style>
 </head>
 <body>
-    <header class="hero container" role="banner" aria-label="Header">
-    <img src="assets/profile.jpg" alt="Portrait of Kareem Ibrahim, University of Toronto" class="profile-img hero-img" width="200" height="200">
-    <h1 class="hero-title">Kareem Ibrahim</h1>
-    <p class="hero-subtitle">Ph.D. Candidate, Computer Engineering, University of Toronto</p>
-    <p class="hero-lead">
-      I research resource-efficient AI systems, including AI data compression, bit-level optimization, efficient neural network training, 3D graphics, and neuromorphic computing.
-    </p>
-    <p class="hero-links" aria-label="Primary quick links">
-      <a href="mailto:kareem.ibrahim@mail.utoronto.ca" class="btn primary">Email</a>
-      <a href="https://scholar.google.com/citations?user=j6mkfKoAAAAJ&hl=en" target="_blank" rel="noopener" class="btn outline">Google Scholar</a>
-      <a href="https://www.linkedin.com/in/kareemabdelmoniem/" target="_blank" rel="noopener" class="btn outline">LinkedIn</a>
-    </p>
-  </header>
+  <!-- Theme Toggle Button -->
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+    <span class="theme-toggle-icon" id="themeIcon">🌙</span>
+    <span>Dark Mode</span>
+  </button>
 
-  <!-- Sticky nav -->
-  <nav class="site-nav sticky" aria-label="Main navigation">
+  <!-- Progress Bar -->
+  <div class="progress-bar" id="progressBar"></div>
+
+  <!-- Animated Background -->
+  <div class="bg-animation" id="bgAnimation"></div>
+
+  <!-- Hero Section -->
+  <header class="hero container">
+    <img src="assets/profile.jpg" alt="Kareem Ibrahim" class="profile-img">
+    <h1 class="hero-title">Kareem Ibrahim</h1>
+    <p class="hero-subtitle">Ph.D. Candidate, Computer Engineering, University of Toronto</p>
+    <p class="hero-lead">
+      I research resource-efficient AI systems, including AI data compression, bit-level optimization, 
+      efficient neural network training, 3D graphics, and neuromorphic computing.
+    </p>
+    <div class="hero-links">
+      <a href="mailto:kareem.ibrahim@mail.utoronto.ca" class="btn primary">Email</a>
+      <a href="https://scholar.google.com/citations?user=j6mkfKoAAAAJ&hl=en" target="_blank" rel="noopener" class="btn outline">Google Scholar</a>
+      <a href="https://www.linkedin.com/in/kareemabdelmoniem/" target="_blank" rel="noopener" class="btn outline">LinkedIn</a>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="site-nav">
     <div class="container">
       <ul>
         <li><a href="#about">About</a></li>
@@ -80,79 +902,90 @@
     </div>
   </nav>
 
-  <main class="container" id="main">
-    <!-- About -->
-    <section id="about" aria-labelledby="about-title">
-      <h2 id="about-title">About</h2>
-        <p>
-         I am a Ph.D. candidate in Computer Engineering at the University of Toronto, based in Toronto, Canada, and advised by <a href="https://www.eecg.utoronto.ca/~moshovos/" target="_blank" rel="noopener">Prof. Andreas Moshovos</a>. My research focuses on resource-efficient AI systems, including AI data compression, bit-level optimization, efficient neural network training, 3D graphics, and neuromorphic computing. I am also passionate about teaching and have served as a course instructor and teaching assistant for a variety of computer engineering and electronics courses. See my <a href="#publications">publications</a> and <a href="#news">news</a> for recent updates.
-        </p>
-        <p>
-          Previously completed an M.Sc. (GPA 3.9) and B.Sc. (GPA 4.0, rank 2/260) in Electronics and Communications at Cairo University.
-        </p>
+  <main class="container">
+    <!-- About Section -->
+    <section id="about">
+      <h2>About</h2>
+      <p>
+        I am a Ph.D. candidate in Computer Engineering at the University of Toronto, based in Toronto, Canada, 
+        and advised by <a href="https://www.eecg.utoronto.ca/~moshovos/" target="_blank" rel="noopener">Prof. Andreas Moshovos</a>. 
+        My research focuses on resource-efficient AI systems, including AI data compression, bit-level optimization, 
+        efficient neural network training, 3D graphics, and neuromorphic computing. I am also passionate about teaching 
+        and have served as a course instructor and teaching assistant for a variety of computer engineering and electronics courses. 
+        See my <a href="#publications">publications</a> and <a href="#news">news</a> for recent updates.
+      </p>
+      <p>
+        Previously completed an M.Sc. (GPA 3.9) and B.Sc. (GPA 4.0, rank 2/260) in Electronics and Communications at Cairo University.
+      </p>
     </section>
 
-    <!-- Research (refined) -->
-    <section id="research" aria-labelledby="research-title">
-      <h2 id="research-title">Research</h2>
+    <!-- Research Section -->
+    <section id="research">
+      <h2>Research</h2>
       <div class="research-grid">
         <article class="research-card">
           <h3>AI Compression & Bit‑Level Optimization</h3>
           <p>
-            Methods that reduce model and activation footprints while preserving accuracy, enabling larger effective capacity under tight memory and bandwidth limits.
+            Methods that reduce model and activation footprints while preserving accuracy, 
+            enabling larger effective capacity under tight memory and bandwidth limits.
           </p>
           <ul class="research-points">
             <li>Dynamic precision and containerization strategies</li>
             <li>Hardware/Software co‑design for memory efficiency</li>
           </ul>
-            <p class="research-xref">Representative: Schrödinger’s FP; Atalanta; Every Bit Matters (see <a href="#publications">Publications</a>).</p>
+          <p class="research-xref">Representative: Schrödinger's FP; Atalanta; Every Bit Matters</p>
         </article>
 
         <article class="research-card">
           <h3>Efficient Neural Network Training</h3>
           <p>
-            Training acceleration via selective workload skipping and adaptive resource allocation to reduce time‑to‑quality without compromising final accuracy.
+            Training acceleration via selective workload skipping and adaptive resource allocation 
+            to reduce time‑to‑quality without compromising final accuracy.
           </p>
           <ul class="research-points">
             <li>Skip policies and curriculum‑style scheduling</li>
             <li>Benchmarks and methodology for fair evaluation</li>
           </ul>
-            <p class="research-xref">Representative: Selective Workload Skipping (IHIET‑AI 2025, see <a href="#publications">Publications</a>).</p>
+          <p class="research-xref">Representative: Selective Workload Skipping (IHIET‑AI 2025)</p>
         </article>
 
         <article class="research-card">
           <h3>3D Graphics & Gaussian Splatting</h3>
           <p>
-            Computationally optimal pipelines for real‑time Gaussian splatting on mobile/AR devices, with attention to compression, latency, and visual fidelity.
+            Computationally optimal pipelines for real‑time Gaussian splatting on mobile/AR devices, 
+            with attention to compression, latency, and visual fidelity.
           </p>
           <ul class="research-points">
             <li>Rate–distortion–latency trade‑offs</li>
             <li>Scheduling and data layouts for fast rendering</li>
           </ul>
-          <p class="research-xref">Community: COGS (Computationally Optimal Gaussian Splatting).</p>
+          <p class="research-xref">Community: COGS (Computationally Optimal Gaussian Splatting)</p>
         </article>
 
         <article class="research-card">
           <h3>Neuromorphic & Brain–Machine Interfaces</h3>
           <p>
-            Scalable on‑device spike sorting and system design for untethered BMIs, emphasizing accuracy, energy, and robustness in deployment.
+            Scalable on‑device spike sorting and system design for untethered BMIs, 
+            emphasizing accuracy, energy, and robustness in deployment.
           </p>
           <ul class="research-points">
             <li>Throughput‑aware algorithmic pipelines</li>
             <li>Energy‑efficient hardware/software interfaces</li>
           </ul>
-          <p class="research-xref">Representative: Marple (ASPLOS 2024).</p>
+          <p class="research-xref">Representative: Marple (ASPLOS 2024)</p>
         </article>
       </div>
     </section>
 
-    <!-- News (moved up) -->
-    <section id="news" aria-labelledby="news-title">
-      <h2 id="news-title">News</h2>
+    <!-- News Section -->
+    <section id="news">
+      <h2>News</h2>
       <ul class="news-list">
         <li class="news-card">
           <span class="news-date">Oct 2025</span>
-          Organizing Committee for the “Workshop & Competition on Computationally Optimal Gaussian Splatting (COGS)” co‑located with ICCV 2025, in collaboration with Meta. Tracks focus on efficiency, compression, and quality; duties include evaluation design and leaderboard operations.
+          Organizing Committee for the "Workshop & Competition on Computationally Optimal Gaussian Splatting (COGS)" 
+          co‑located with ICCV 2025, in collaboration with Meta. Tracks focus on efficiency, compression, and quality; 
+          duties include evaluation design and leaderboard operations.
           <span class="badges">
             <a class="badge" href="https://sites.google.com/view/cogs2025/home?authuser=0" target="_blank" rel="noopener">Workshop Website</a>
           </span>
@@ -163,138 +996,289 @@
         </li>
         <li class="news-card">
           <span class="news-date">2024</span>
-          “Atalanta: A Bit is Worth a ‘Thousand’ Tensor Values” presented at ASPLOS 2024.
+          "Atalanta: A Bit is Worth a 'Thousand' Tensor Values" presented at ASPLOS 2024.
         </li>
         <li class="news-card">
           <span class="news-date">2024</span>
-          “Marple: Scalable Spike Sorting for Untethered Brain‑Machine Interfacing” presented at ASPLOS 2024.
+          "Marple: Scalable Spike Sorting for Untethered Brain‑Machine Interfacing" presented at ASPLOS 2024.
         </li>
         <li class="news-card">
           <span class="news-date">2024</span>
-          “Schrödinger’s FP: Training Neural Networks with Dynamic Floating‑Point Containers” presented at MLSys 2024.
+          "Schrödinger's FP: Training Neural Networks with Dynamic Floating‑Point Containers" presented at MLSys 2024.
         </li>
         <li class="news-card">
           <span class="news-date">2024</span>
-          “Every Bit Matters: A Hardware/Software Approach for Enabling More Powerful Machine Learning Models” presented at Asilomar 2024.
+          "Every Bit Matters: A Hardware/Software Approach for Enabling More Powerful Machine Learning Models" presented at Asilomar 2024.
         </li>
       </ul>
     </section>
 
-    <!-- Publications -->
-    <section id="publications" aria-labelledby="pubs-title">
-      <h2 id="pubs-title">Publications</h2>
+    <!-- Publications Section -->
+    <section id="publications">
+      <h2>Publications</h2>
 
-      <h3>2025</h3>
+      <h3 style="color: var(--primary-light); margin-top: 40px;">2025</h3>
       <ul class="pub-list">
         <li class="pub-card">
           <div class="pub-meta">
             <strong>K. Ibrahim</strong>, M. Nikolić, N. Giamblanco, A. Hadizadeh, E. Torres Sanchez, A. Moshovos.
-            “Evaluating Training Acceleration through Selective Workload Skipping: Methods and Benchmarks.” <em>IHIET‑AI</em>, 2025.
+            "Evaluating Training Acceleration through Selective Workload Skipping: Methods and Benchmarks." 
+            <em>IHIET‑AI</em>, 2025.
           </div>
           <span class="badges">
-            <a class="badge" href="https://scholar.google.com/scholar?q=Evaluating+Training+Acceleration+through+Selective+Workload+Skipping" target="_blank" rel="noopener" aria-label="View on Google Scholar">Scholar</a>
+            <a class="badge" href="https://scholar.google.com" target="_blank" rel="noopener">Scholar</a>
           </span>
         </li>
       </ul>
 
-      <h3>2024</h3>
+      <h3 style="color: var(--primary-light); margin-top: 40px;">2024</h3>
       <ul class="pub-list">
         <li class="pub-card">
           <div class="pub-meta">
-            M. Nikolić, E. Torres, <strong>K. Ibrahim</strong>, A. Lascorz, A. Hadizadeh, J. Wang, A. Abdelhadi, M. Mahmoud, A. Abdelhadi, C. Giannoula, A. Moshovos. “Every Bit Matters: A Hardware/Software Approach for Enabling More Powerful Machine Learning Models.” <em>Asilomar</em>, 2024.
+            M. Nikolić, E. Torres, <strong>K. Ibrahim</strong>, A. Lascorz, A. Hadizadeh, J. Wang, A. Abdelhadi, 
+            M. Mahmoud, A. Abdelhadi, C. Giannoula, A. Moshovos. 
+            "Every Bit Matters: A Hardware/Software Approach for Enabling More Powerful Machine Learning Models." 
+            <em>Asilomar</em>, 2024.
           </div>
           <span class="badges">
-            <a class="badge" href="https://scholar.google.com/scholar?q=Every+Bit+Matters:+A+Hardware/Software+Approach+for+Enabling+More+Powerful+Machine+Learning+Models" target="_blank" rel="noopener" aria-label="View on Google Scholar">Scholar</a>
+            <a class="badge" href="https://scholar.google.com" target="_blank" rel="noopener">Scholar</a>
           </span>
         </li>
         <li class="pub-card">
           <div class="pub-meta">
-            E. Sha, A. Liu, <strong>K. Ibrahim</strong>, M. Mahmoud, C. Giannoula, A. Abdelhadi, A. Moshovos. “Marple: Scalable Spike Sorting for Untethered Brain‑Machine Interfacing.” <em>ASPLOS</em>, 2024.
+            E. Sha, A. Liu, <strong>K. Ibrahim</strong>, M. Mahmoud, C. Giannoula, A. Abdelhadi, A. Moshovos. 
+            "Marple: Scalable Spike Sorting for Untethered Brain‑Machine Interfacing." 
+            <em>ASPLOS</em>, 2024.
           </div>
           <span class="badges">
-            <a class="badge" href="https://scholar.google.com/scholar?q=Marple:+Scalable+Spike+Sorting+for+Untethered+Brain-Machine+Interfacing" target="_blank" rel="noopener" aria-label="View on Google Scholar">Scholar</a>
+            <a class="badge" href="https://scholar.google.com" target="_blank" rel="noopener">Scholar</a>
           </span>
         </li>
         <li class="pub-card">
           <div class="pub-meta">
-            A. Lascorz, M. Mahmoud, A. Hadizadeh, M. Nikolić, <strong>K. Ibrahim</strong>, C. Giannoula, A. Abdelhadi, A. Moshovos. “Atalanta: A Bit is Worth a ‘Thousand’ Tensor Values.” <em>ASPLOS</em>, 2024.
+            A. Lascorz, M. Mahmoud, A. Hadizadeh, M. Nikolić, <strong>K. Ibrahim</strong>, C. Giannoula, 
+            A. Abdelhadi, A. Moshovos. 
+            "Atalanta: A Bit is Worth a 'Thousand' Tensor Values." 
+            <em>ASPLOS</em>, 2024.
           </div>
           <span class="badges">
-            <a class="badge" href="https://scholar.google.com/scholar?q=Atalanta:+A+Bit+is+Worth+a+Thousand+Tensor+Values" target="_blank" rel="noopener" aria-label="View on Google Scholar">Scholar</a>
+            <a class="badge" href="https://scholar.google.com" target="_blank" rel="noopener">Scholar</a>
           </span>
         </li>
         <li class="pub-card">
           <div class="pub-meta">
-            M. Nikolić, E. Torres, J. Wang, A. Hadizadeh, <strong>K. Ibrahim</strong>, M. Mahmoud, A. Abdelhadi, A. Moshovos. “Schrödinger’s FP: Training Neural Networks with Dynamic Floating‑Point Containers.” <em>MLSys</em>, 2024.
+            M. Nikolić, E. Torres, J. Wang, A. Hadizadeh, <strong>K. Ibrahim</strong>, M. Mahmoud, 
+            A. Abdelhadi, A. Moshovos. 
+            "Schrödinger's FP: Training Neural Networks with Dynamic Floating‑Point Containers." 
+            <em>MLSys</em>, 2024.
           </div>
           <span class="badges">
-            <a class="badge" href="https://arxiv.org/abs/2204.13666" target="_blank" rel="noopener" aria-label="View on arXiv">arXiv</a>
-            <a class="badge" href="https://scholar.google.com/scholar?q=Schr%C3%B6dinger%E2%80%99s+FP:+Training+Neural+Networks+with+Dynamic+Floating-Point+Containers" target="_blank" rel="noopener" aria-label="View on Google Scholar">Scholar</a>
+            <a class="badge" href="https://arxiv.org/abs/2204.13666" target="_blank" rel="noopener">arXiv</a>
+            <a class="badge" href="https://scholar.google.com" target="_blank" rel="noopener">Scholar</a>
           </span>
         </li>
       </ul>
 
-      <h3>2019–2017</h3>
+      <h3 style="color: var(--primary-light); margin-top: 40px;">2019–2017</h3>
       <ul class="pub-list">
         <li class="pub-card">
           <div class="pub-meta">
-            H. A. Ameen, <strong>K. Abdelmonem</strong>, M. A. Elgamal, M. A. Mousa, O. Hamada, Y. Zakaria, M. A. Abdalla. “A 28 GHz four‑channel phased‑array transceiver in 65‑nm CMOS technology for 5G applications.” <em>AEU – International Journal of Electronics and Communications</em>, 2019.
+            H. A. Ameen, <strong>K. Abdelmonem</strong>, M. A. Elgamal, M. A. Mousa, O. Hamada, Y. Zakaria, M. A. Abdalla. 
+            "A 28 GHz four‑channel phased‑array transceiver in 65‑nm CMOS technology for 5G applications." 
+            <em>AEU – International Journal of Electronics and Communications</em>, 2019.
           </div>
           <span class="badges">
-            <a class="badge" href="https://scholar.google.com/scholar?q=A+28+GHz+four-channel+phased-array+transceiver+in+65-nm+CMOS+technology+for+5G+applications" target="_blank" rel="noopener" aria-label="View on Google Scholar">Scholar</a>
+            <a class="badge" href="https://scholar.google.com" target="_blank" rel="noopener">Scholar</a>
           </span>
         </li>
         <li class="pub-card">
           <div class="pub-meta">
-            H. A. Ameen, <strong>K. Abdelmonem</strong>, M. Elgamal, M. Mousa, O. Hamada, Y. Zakaria, M. Abdalla. “A 28 GHz Four‑Channel Phased‑Array transceiver in 65‑nm CMOS technology for 5G applications.” <em>ICM</em>, 2017.
+            H. A. Ameen, <strong>K. Abdelmonem</strong>, M. Elgamal, M. Mousa, O. Hamada, Y. Zakaria, M. Abdalla. 
+            "A 28 GHz Four‑Channel Phased‑Array transceiver in 65‑nm CMOS technology for 5G applications." 
+            <em>ICM</em>, 2017.
           </div>
           <span class="badges">
-            <a class="badge" href="https://scholar.google.com/scholar?q=A+28+GHz+Four-Channel+Phased-Array+transceiver+in+65-nm+CMOS+technology+for+5G+applications" target="_blank" rel="noopener" aria-label="View on Google Scholar">Scholar</a>
+            <a class="badge" href="https://scholar.google.com" target="_blank" rel="noopener">Scholar</a>
           </span>
         </li>
         <li class="pub-card">
           <div class="pub-meta">
-            M. A. Bahnasawi, <strong>K. Ibrahim</strong>, A. Mohamed, M. K. Mohamed, A. Moustafa, K. Abdelmonem, Y. Ismail, H. Mostafa. “ASIC‑oriented comparative review of hardware security algorithms for internet of things applications.” <em>ICM</em>, 2016.
+            M. A. Bahnasawi, <strong>K. Ibrahim</strong>, A. Mohamed, M. K. Mohamed, A. Moustafa, K. Abdelmonem, 
+            Y. Ismail, H. Mostafa. 
+            "ASIC‑oriented comparative review of hardware security algorithms for internet of things applications." 
+            <em>ICM</em>, 2016.
           </div>
           <span class="badges">
-            <a class="badge" href="https://scholar.google.com/scholar?q=ASIC-oriented+comparative+review+of+hardware+security+algorithms+for+internet+of+things+applications" target="_blank" rel="noopener" aria-label="View on Google Scholar">Scholar</a>
+            <a class="badge" href="https://scholar.google.com" target="_blank" rel="noopener">Scholar</a>
           </span>
         </li>
       </ul>
     </section>
 
-    <!-- Awards -->
-    <section id="awards" aria-labelledby="awards-title">
-      <h2 id="awards-title">Awards</h2>
+    <!-- Awards Section -->
+    <section id="awards">
+      <h2>Awards</h2>
       <ul>
         <li>Right Track CAD Graduate Scholarship, University of Toronto, 2025.</li>
         <li>Third Place Winner, National Microelectronics Olympiads, Synopsys Inc., 2019.</li>
-        <li>Awarded Teaching Stream Tenured Position for Academic Distinction, Department of Electronics and Electrical Communications, Cairo University, 2018.</li>
+        <li>Awarded Teaching Stream Tenured Position for Academic Distinction, Cairo University, 2018.</li>
       </ul>
     </section>
 
-    <!-- Teaching -->
-    <section id="teaching" aria-labelledby="teaching-title">
-      <h2 id="teaching-title">Teaching</h2>
+    <!-- Teaching Section -->
+    <section id="teaching">
+      <h2>Teaching</h2>
       <ul>
-        <li>Course Instructor, CSCB58 (Computer Organization), U of T Scarborough, May 2024 – Sept 2025.</li>
+        <li>Course Instructor, CSCB58 (Computer Organization), The Department of Computer and Mathematical Sciences, U of T Scarborough, May 2024 – Sept 2025.</li>
+        <li>Head Teaching Assistant, ECE244, ECE352, CSC258, University of Toronto, Sept 2024 – Present.</li>
         <li>Teaching Assistant, University of Toronto (Jan 2022 – Present): APS105, CSC258, ECE342, ECE243, ECE352, ECE241, ECE253, ECE244.</li>
         <li>Teaching Assistant, Cairo University (Dec 2018 – July 2021): ELC103A, ELC103B, ELC301A, ELC201B, ELC202B.</li>
-        <li>Teaching Assistant, Zewail University of Science and Technology (Feb 2019 – July 2021): NANENG204, NANENG422, NANENG320.</li>
+        <li>Teaching Assistant, Zewail University (Feb 2019 – July 2021): NANENG204, NANENG422, NANENG320.</li>
         <li>Teaching Assistant, The American University in Cairo (Jan 2021 – May 2021): ECNG318.</li>
         <li>Technical Trainer, National Telecommunication Institute (NTI), Sep 2020 – Nov 2020.</li>
       </ul>
     </section>
 
-    <!-- Contact -->
-    <section id="contact" aria-labelledby="contact-title">
-      <h2 id="contact-title">Contact</h2>
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2>Contact</h2>
       <p>Email is preferred: <a href="mailto:kareem.ibrahim@mail.utoronto.ca">kareem.ibrahim@mail.utoronto.ca</a></p>
     </section>
   </main>
 
-  <footer role="contentinfo">
+  <footer>
     <p>&copy; Kareem Ibrahim, 2025. All rights reserved.</p>
   </footer>
+
+  <script>
+    // Theme Toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const body = document.body;
+
+    // Check for saved theme preference or default to light mode
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    
+    if (currentTheme === 'dark') {
+      body.classList.add('dark-mode');
+      themeIcon.textContent = '🌙';
+      themeToggle.querySelector('span:last-child').textContent = 'Dark Mode';
+    } else {
+      themeIcon.textContent = '☀️';
+      themeToggle.querySelector('span:last-child').textContent = 'Light Mode';
+    }
+
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      
+      if (body.classList.contains('dark-mode')) {
+        themeIcon.textContent = '🌙';
+        themeToggle.querySelector('span:last-child').textContent = 'Dark Mode';
+        localStorage.setItem('theme', 'dark');
+      } else {
+        themeIcon.textContent = '☀️';
+        themeToggle.querySelector('span:last-child').textContent = 'Light Mode';
+        localStorage.setItem('theme', 'light');
+      }
+    });
+
+    // Create animated background particles
+    function createParticles() {
+      const bgAnimation = document.getElementById('bgAnimation');
+      const particleCount = 50;
+      
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.animationDelay = Math.random() * 20 + 's';
+        particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+        bgAnimation.appendChild(particle);
+      }
+    }
+
+    // Smooth scroll progress bar
+    function updateProgressBar() {
+      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrolled = (window.scrollY / scrollHeight) * 100;
+      document.getElementById('progressBar').style.width = scrolled + '%';
+    }
+
+    // Intersection Observer for fade-in animations
+    function setupIntersectionObserver() {
+      const sections = document.querySelectorAll('section');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
+      
+      sections.forEach(section => {
+        observer.observe(section);
+      });
+    }
+
+    // Update active navigation link
+    function updateActiveNav() {
+      const sections = document.querySelectorAll('section');
+      const navLinks = document.querySelectorAll('.site-nav a');
+      
+      let current = '';
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        if (scrollY >= (sectionTop - 200)) {
+          current = section.getAttribute('id');
+        }
+      });
+      
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').slice(1) === current) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    // Initialize everything
+    document.addEventListener('DOMContentLoaded', () => {
+      createParticles();
+      setupIntersectionObserver();
+      updateProgressBar();
+      updateActiveNav();
+    });
+
+    // Update on scroll
+    window.addEventListener('scroll', () => {
+      updateProgressBar();
+      updateActiveNav();
+    });
+
+    // Add hover effect to research cards
+    document.querySelectorAll('.research-card').forEach(card => {
+      card.addEventListener('mouseenter', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const isDarkMode = body.classList.contains('dark-mode');
+        if (isDarkMode) {
+          card.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(59, 130, 246, 0.08), rgba(30, 41, 59, 0.5))`;
+        } else {
+          card.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(37, 99, 235, 0.04), rgba(255, 255, 255, 0.9))`;
+        }
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        card.style.background = '';
+      });
+    });
+  </script>
 </body>
 </html>
