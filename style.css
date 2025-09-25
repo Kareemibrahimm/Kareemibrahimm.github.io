@@ -37,10 +37,11 @@
   --accent: #f59e0b;
 }
 
+
 body {
   line-height: 1.7;
-  color: var(--ink);
-  background: var(--bg);
+  color: var(--ink, #0f172a);
+  background: var(--bg, #ffffff);
 }
 
 /* Widen overall layout on large screens */
@@ -73,9 +74,10 @@ header.hero {
   margin-bottom: .25rem;
 }
 
+
 .hero-subtitle {
   margin: 0 0 .75rem 0;
-  color: var(--muted);
+  color: var(--muted, #64748b);
 }
 
 .hero-lead {
