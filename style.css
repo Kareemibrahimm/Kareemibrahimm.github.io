@@ -1,3 +1,30 @@
+/* Mobile-friendly improvements */
+@media (max-width: 600px) {
+  .container {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  header.hero {
+    padding: 1.2rem 0.2rem;
+    margin-top: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  .hero-img, .profile-img {
+    width: 120px;
+    height: 120px;
+  }
+  .hero-lead {
+    font-size: 1rem;
+    max-width: 98vw;
+  }
+  nav.site-nav ul {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  nav.site-nav li {
+    margin-bottom: 0.2rem;
+  }
+}
 /* style.css */
 
 /* Base & tokens */
